@@ -1,23 +1,98 @@
 <html>
-<body>
+<style>
+    .stars {
+        display: inline;
+    }
 
-<h2>Hello Word!</h2>
+    .main {
+        width: 50%;
+        height: 35%;
+        background-color: #ef562d;
+        color: white;
 
-<h4>What's your name?</h4>
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
+        margin: auto;
+        align-content: center;
+        text-align: center;
 
-<form action="/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Say 'Hello'" />
-</form>
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+        transition: 0.3s;
+        border-radius: 2%;
+    }
 
-{% if name %}
-    <h4>Hello {{name}} !</h6>
-{% else %}
-{% endif %} 
+    .myButton {
+        background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+        background-color:#599bb3;
+        -moz-border-radius:8px;
+        -webkit-border-radius:8px;
+        border-radius:8px;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:20px;
+        font-weight:bold;
+        padding:5px 10px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #3d768a;
+    }
+    .myButton:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+        background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+        background-color:#408c99;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
 
+    input[type=text], select {
+        width: 50%;
+        padding: 8px 15px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-right: 20px;
+    }
+    
+</style>
 
-<p>Rate this greeting: </p>
+<body style="background-color: #97d5e0">
+    <div class="main">
 
+    <h2>What's your name?</h2>
+
+        <form action="/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input class="myButton" type="submit" value="Say 'Hello'" />
+        </form>
+        
+        {% if name %}
+            <h4>Hello {{name}} !</h6>
+        {% else %}
+        {% endif %} 
+        
+        
+        <p class="stars"> Rate this greeting: 
+            <h1 class="stars"> <span> ☆ </span><span> ☆ </span><span> ☆ </span><span> ☆ </span><span> ☆ </span> </h1> 
+        </p>
+    </div>
 </body>
