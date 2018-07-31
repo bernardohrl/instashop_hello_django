@@ -5,10 +5,18 @@
 
 <h4>What's your name?</h4>
 
-<form action>
-  <input type="text" name="name">
-  <input type="submit" value="Say 'Hello'">
-</form> 
+
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Say 'Hello'" />
+</form>
+
+{% if name %}
+    <h4>Hello {{name}} !</h6>
+{% else %}
+{% endif %} 
+
 
 <p>Rate this greeting: </p>
 
