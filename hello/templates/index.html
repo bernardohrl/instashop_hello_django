@@ -1,7 +1,9 @@
 <html>
 <style>
     .stars {
-        display: inline;
+        position: absolute;
+        right: 51%;
+        top: 70%;
     }
 
     .main {
@@ -71,7 +73,42 @@
         box-sizing: border-box;
         margin-right: 20px;
     }
+
+    .rate-area {
+        padding-left: 10px;
+        position: absolute;
+        top: 65%;
+        right: 49%;
+    }
     
+    .rate-area:not(:checked) > input {
+        position: absolute;
+        top: -9999px;
+        clip: rect(0,0,0,0);
+    }
+    
+    .rate-area:not(:checked) > label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 200%;
+        line-height: 1.2;
+        color: lightgrey;
+        text-shadow: 1px 1px #bbb;
+    }
+    
+    .rate-area:not(:checked) > label:before { content: '★ '; }
+    
+    .rate-area > input:checked ~ label {
+        color: gold;
+        text-shadow: 1px 1px #c60;
+    }
+        
+    label {
+        position: absolute;
+    }
+
 </style>
 
 <body style="background-color: #97d5e0">
@@ -90,9 +127,15 @@
         {% else %}
         {% endif %} 
         
-        
+
         <p class="stars"> Rate this greeting: 
-            <h1 class="stars"> <span> ☆ </span><span> ☆ </span><span> ☆ </span><span> ☆ </span><span> ☆ </span> </h1> 
+            <ul class="rate-area">
+                <input type="radio" id="5-star" name="rating" value="5" /><label style="margin-left: 120px;" for="5-star" title="Amazing">5 stars</label>
+                <input type="radio" id="4-star" name="rating" value="4" /><label style="margin-left: 90px;"  for="4-star" title="Good">4 stars</label>
+                <input type="radio" id="3-star" name="rating" value="3" /><label style="margin-left: 60px;"  for="3-star" title="Average">3 stars</label>
+                <input type="radio" id="2-star" name="rating" value="2" /><label style="margin-left: 30px;"  for="2-star" title="Not Good">2 stars</label>
+                <input type="radio" id="1-star" name="rating" value="1" /><label                             for="1-star" title="Bad">1 star</label>
+            </ul>               
         </p>
     </div>
 </body>
